@@ -3,6 +3,7 @@
 const mongoose = require("mongoose")
 const Drone = require("./../models/Drone.model")
 
+require("dotenv").config()
 const drones = [
   { name: "Creeper XL 500", propellers: 3, maxSpeed: 12 },
   { name: "Racer 57", propellers: 4, maxSpeed: 20 },
@@ -20,6 +21,7 @@ mongoose
     useCreateIndex: true,
   })
   .then((x) => {
+    console.log(MONGO_URI)
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch((err) => {
